@@ -1,4 +1,4 @@
-# ase-treesitter-adapter
+# ase-adp-treesitter
 
 [![Layer](https://img.shields.io/badge/Adapter-Tree--sitter-yellow.svg)]()
 [![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)]()
@@ -23,7 +23,7 @@ a pure C++ codebase: no accidental C-linkage creep, every dep that is
 truly C-only must be encapsulated.
 
 This adapter is the **single allowed home** for the tree-sitter C linkage.
-The path `adapter/ase-treesitter-adapter/` is whitelisted in
+The path `adapter/ase-adp-treesitter/` is whitelisted in
 `core/ase-validator/ecs_validator/data/third_party_oop.json` for the
 `EXTERN_C_FORBIDDEN` rule. Consumers include this header and call
 `ase::treesitter::grammar_*()` — pure C++ in the caller's translation unit.
@@ -31,7 +31,7 @@ The path `adapter/ase-treesitter-adapter/` is whitelisted in
 ## API
 
 ```cpp
-#include <ase/treesitter/grammars.hpp>
+#include <ase/adp/treesitter/grammars.hpp>
 #include <tree_sitter/api.h>  // for the actual TSLanguage / TSParser API
 
 TSParser* p = ts_parser_new();
@@ -75,7 +75,7 @@ Available grammars:
 
 ### From root ASE build
 
-`adapter/ase-treesitter-adapter/` is already wired into the root
+`adapter/ase-adp-treesitter/` is already wired into the root
 `CMakeLists.txt`. Consumers just link the alias:
 
 ```cmake
@@ -86,8 +86,8 @@ target_link_libraries(my-client PRIVATE ase::treesitter)
 
 ```cmake
 if(NOT TARGET ase::treesitter)
-    add_subdirectory(${ASE_ROOT}/adapter/ase-treesitter-adapter
-                     ${CMAKE_BINARY_DIR}/ase-treesitter-adapter)
+    add_subdirectory(${ASE_ROOT}/adapter/ase-adp-treesitter
+                     ${CMAKE_BINARY_DIR}/ase-adp-treesitter)
 endif()
 target_link_libraries(my-client PRIVATE ase::treesitter)
 ```

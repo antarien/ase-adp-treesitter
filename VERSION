@@ -11,10 +11,10 @@
 #
 # ==============================================================================
 
-ASE_TREESITTER_ADAPTER=00.00.01.00001
-ASE_TREESITTER_ADAPTER_NAME=Tree-sitter Adapter
-ASE_TREESITTER_ADAPTER_DESC=C++ wrapper around tree-sitter grammar libraries — isolates extern "C" linkage
-ASE_TREESITTER_ADAPTER_LAYER=adapter
-ASE_TREESITTER_ADAPTER_STATUS=stub
-ASE_TREESITTER_ADAPTER_CREATED=2026-04-14
-ASE_TREESITTER_ADAPTER_UPDATED=2026-04-14
+ASE_ADP_TREESITTER=00.00.01.00001
+ASE_ADP_TREESITTER_NAME=Tree-sitter Adapter
+ASE_ADP_TREESITTER_DESC=C++ wrapper around tree-sitter grammar libraries — isolates extern "C" linkage
+ASE_ADP_TREESITTER_LAYER=adapter
+ASE_ADP_TREESITTER_STATUS=stub
+ASE_ADP_TREESITTER_CREATED=2026-04-14
+ASE_ADP_TREESITTER_UPDATED=2026-04-14
