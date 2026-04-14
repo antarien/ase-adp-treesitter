@@ -7,7 +7,7 @@ ASE TREESITTER ADAPTER BUILD CONFIGURATION
 @brief       Build configuration for ase-adp-treesitter
 @description Header-only adapter that wraps the C grammar entry-points of
              tree-sitter (tree_sitter_cpp(), tree_sitter_python(), …) behind
-             ase::treesitter::grammar_*() inline functions. The extern "C"
+             ase::adp::treesitter::grammar_*() inline functions. The extern "C"
              block lives only in this adapter's header; the rest of the
              codebase stays pure C++. Adapter path is whitelisted in
              core/ase-validator/ecs_validator/data/third_party_oop.json
@@ -48,7 +48,7 @@ message(STATUS "Configuring ${PROJECT_NAME} v${PROJECT_VERSION}")
 # grammar libraries (ts-grammar-cpp, ts-grammar-c, …). TSLanguage is
 # forward-declared so this header doesn't even need <tree_sitter/api.h>.
 add_library(${PROJECT_NAME} INTERFACE)
-add_library(ase::adp-treesitter ALIAS ${PROJECT_NAME})
+add_library(ase::adp::treesitter ALIAS ${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME}
     INTERFACE

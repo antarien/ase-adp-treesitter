@@ -14,7 +14,7 @@
  * core/ase-validator/ecs_validator/data/third_party_oop.json.
  *
  * Consumers include this header instead of writing their own extern "C"
- * declarations, and call ase::treesitter::grammar_*() — pure C++ in the
+ * declarations, and call ase::adp::treesitter::grammar_*() — pure C++ in the
  * caller's translation unit. The actual grammar symbols are resolved at
  * link time from the consumer's tree-sitter grammar libraries.
  *
@@ -36,7 +36,7 @@ const TSLanguage* tree_sitter_typescript();
 
 }  // extern "C"
 
-namespace ase::treesitter {
+namespace ase::adp::treesitter {
 
 inline const TSLanguage* grammar_cpp()        { return ::tree_sitter_cpp();        }
 inline const TSLanguage* grammar_c()          { return ::tree_sitter_c();          }
@@ -45,4 +45,4 @@ inline const TSLanguage* grammar_bash()       { return ::tree_sitter_bash();    
 inline const TSLanguage* grammar_json()       { return ::tree_sitter_json();       }
 inline const TSLanguage* grammar_typescript() { return ::tree_sitter_typescript(); }
 
-}  // namespace ase::treesitter
+}  // namespace ase::adp::treesitter
