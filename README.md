@@ -79,17 +79,17 @@ Available grammars:
 `CMakeLists.txt`. Consumers just link the alias:
 
 ```cmake
-target_link_libraries(my-client PRIVATE ase::treesitter)
+target_link_libraries(my-client PRIVATE ase::adp-treesitter)
 ```
 
 ### Standalone subproject
 
 ```cmake
-if(NOT TARGET ase::treesitter)
+if(NOT TARGET ase::adp-treesitter)
     add_subdirectory(${ASE_ROOT}/adapter/ase-adp-treesitter
                      ${CMAKE_BINARY_DIR}/ase-adp-treesitter)
 endif()
-target_link_libraries(my-client PRIVATE ase::treesitter)
+target_link_libraries(my-client PRIVATE ase::adp-treesitter)
 ```
 
 ## Dependencies
