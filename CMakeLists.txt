@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.22)
 ASE TREESITTER ADAPTER BUILD CONFIGURATION
 
 @file        CMakeLists.txt
-@brief       Build configuration for ase-treesitter-adapter
+@brief       Build configuration for ase-adp-treesitter
 @description Header-only adapter that wraps the C grammar entry-points of
              tree-sitter (tree_sitter_cpp(), tree_sitter_python(), …) behind
              ase::treesitter::grammar_*() inline functions. The extern "C"
@@ -13,7 +13,7 @@ ASE TREESITTER ADAPTER BUILD CONFIGURATION
              core/ase-validator/ecs_validator/data/third_party_oop.json
              for the EXTERN_C_FORBIDDEN rule.
 
-@module      ase-treesitter-adapter
+@module      ase-adp-treesitter
 @layer       adapter (3rd-party isolation, consumed by L5 clients)
 @created     2026-04-14
 @modified    2026-04-14
@@ -21,22 +21,22 @@ ASE TREESITTER ADAPTER BUILD CONFIGURATION
 ]]
 
 # Parse local VERSION (SSOT) if not building from root
-if(NOT DEFINED ASE_TREESITTER_ADAPTER_VERSION)
+if(NOT DEFINED ASE_ADP_TREESITTER_VERSION)
     if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION")
         message(FATAL_ERROR "VERSION file not found: ${CMAKE_CURRENT_SOURCE_DIR}/VERSION")
     endif()
     file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" _VERSION_LINES)
     foreach(_LINE ${_VERSION_LINES})
-        if(_LINE MATCHES "^ASE_TREESITTER_ADAPTER=(.*)$")
-            set(ASE_TREESITTER_ADAPTER_VERSION "${CMAKE_MATCH_1}")
+        if(_LINE MATCHES "^ASE_ADP_TREESITTER=(.*)$")
+            set(ASE_ADP_TREESITTER_VERSION "${CMAKE_MATCH_1}")
         endif()
     endforeach()
-    if(NOT DEFINED ASE_TREESITTER_ADAPTER_VERSION)
-        message(FATAL_ERROR "ASE_TREESITTER_ADAPTER version not found in VERSION file")
+    if(NOT DEFINED ASE_ADP_TREESITTER_VERSION)
+        message(FATAL_ERROR "ASE_ADP_TREESITTER version not found in VERSION file")
     endif()
 endif()
 
-project(ase-treesitter-adapter VERSION ${ASE_TREESITTER_ADAPTER_VERSION} LANGUAGES CXX)
+project(ase-adp-treesitter VERSION ${ASE_ADP_TREESITTER_VERSION} LANGUAGES CXX)
 
 message(STATUS "Configuring ${PROJECT_NAME} v${PROJECT_VERSION}")
 
@@ -48,7 +48,7 @@ message(STATUS "Configuring ${PROJECT_NAME} v${PROJECT_VERSION}")
 # grammar libraries (ts-grammar-cpp, ts-grammar-c, …). TSLanguage is
 # forward-declared so this header doesn't even need <tree_sitter/api.h>.
 add_library(${PROJECT_NAME} INTERFACE)
-add_library(ase::treesitter ALIAS ${PROJECT_NAME})
+add_library(ase::adp-treesitter ALIAS ${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME}
     INTERFACE
