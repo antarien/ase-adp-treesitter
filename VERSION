@@ -1,0 +1,20 @@
+# ==============================================================================
+# ASE - Antares Simulation Engine
+# Version Registry (SSOT - Single Source of Truth)
+# ==============================================================================
+#
+# VERSION FORMAT: MM.mm.pp.BBBBB (e.g., 00.02.14.00127)
+#   MM    = MAJOR (manual, 00 until 1.0 release)
+#   mm    = MINOR (commits / 50)
+#   pp    = PATCH (commits % 50)
+#   BBBBB = BUILD (total commits)
+#
+# ==============================================================================
+
+ASE_TREESITTER_ADAPTER=00.00.01.00001
+ASE_TREESITTER_ADAPTER_NAME=Tree-sitter Adapter
+ASE_TREESITTER_ADAPTER_DESC=C++ wrapper around tree-sitter grammar libraries — isolates extern "C" linkage
+ASE_TREESITTER_ADAPTER_LAYER=adapter
+ASE_TREESITTER_ADAPTER_STATUS=stub
+ASE_TREESITTER_ADAPTER_CREATED=2026-04-14
+ASE_TREESITTER_ADAPTER_UPDATED=2026-04-14
