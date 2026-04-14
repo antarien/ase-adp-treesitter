@@ -26,7 +26,7 @@ This adapter is the **single allowed home** for the tree-sitter C linkage.
 The path `adapter/ase-adp-treesitter/` is whitelisted in
 `core/ase-validator/ecs_validator/data/third_party_oop.json` for the
 `EXTERN_C_FORBIDDEN` rule. Consumers include this header and call
-`ase::treesitter::grammar_*()` — pure C++ in the caller's translation unit.
+`ase::adp::treesitter::grammar_*()` — pure C++ in the caller's translation unit.
 
 ## API
 
@@ -35,7 +35,7 @@ The path `adapter/ase-adp-treesitter/` is whitelisted in
 #include <tree_sitter/api.h>  // for the actual TSLanguage / TSParser API
 
 TSParser* p = ts_parser_new();
-ts_parser_set_language(p, ase::treesitter::grammar_cpp());
+ts_parser_set_language(p, ase::adp::treesitter::grammar_cpp());
 TSTree* tree = ts_parser_parse_string(p, nullptr, source, source_len);
 ```
 
@@ -43,12 +43,12 @@ Available grammars:
 
 | Function                              | Tree-sitter symbol         |
 |---------------------------------------|----------------------------|
-| `ase::treesitter::grammar_cpp()`      | `tree_sitter_cpp()`        |
-| `ase::treesitter::grammar_c()`        | `tree_sitter_c()`          |
-| `ase::treesitter::grammar_python()`   | `tree_sitter_python()`     |
-| `ase::treesitter::grammar_bash()`     | `tree_sitter_bash()`       |
-| `ase::treesitter::grammar_json()`     | `tree_sitter_json()`       |
-| `ase::treesitter::grammar_typescript()` | `tree_sitter_typescript()` |
+| `ase::adp::treesitter::grammar_cpp()`      | `tree_sitter_cpp()`        |
+| `ase::adp::treesitter::grammar_c()`        | `tree_sitter_c()`          |
+| `ase::adp::treesitter::grammar_python()`   | `tree_sitter_python()`     |
+| `ase::adp::treesitter::grammar_bash()`     | `tree_sitter_bash()`       |
+| `ase::adp::treesitter::grammar_json()`     | `tree_sitter_json()`       |
+| `ase::adp::treesitter::grammar_typescript()` | `tree_sitter_typescript()` |
 
 ## Architecture
 
@@ -79,17 +79,17 @@ Available grammars:
 `CMakeLists.txt`. Consumers just link the alias:
 
 ```cmake
-target_link_libraries(my-client PRIVATE ase::adp-treesitter)
+target_link_libraries(my-client PRIVATE ase::adp::treesitter)
 ```
 
 ### Standalone subproject
 
 ```cmake
-if(NOT TARGET ase::adp-treesitter)
+if(NOT TARGET ase::adp::treesitter)
     add_subdirectory(${ASE_ROOT}/adapter/ase-adp-treesitter
                      ${CMAKE_BINARY_DIR}/ase-adp-treesitter)
 endif()
-target_link_libraries(my-client PRIVATE ase::adp-treesitter)
+target_link_libraries(my-client PRIVATE ase::adp::treesitter)
 ```
 
 ## Dependencies
