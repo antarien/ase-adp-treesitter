@@ -17,14 +17,14 @@ return a `const TSLanguage*` pointer. Calling these from C++ requires
 declaring them with `extern "C"` so the C++ compiler doesn't mangle the
 symbol names.
 
-The ASE validator (`core/ase-validator/ecs_validator`) forbids `extern "C"`
+The ASE validator (`tools/ase-forge/ase-validator/ecs_validator`) forbids `extern "C"`
 project-wide via the `EXTERN_C_FORBIDDEN` rule. The intent is to keep ASE
 a pure C++ codebase: no accidental C-linkage creep, every dep that is
 truly C-only must be encapsulated.
 
 This adapter is the **single allowed home** for the tree-sitter C linkage.
 The path `adapter/ase-adp-treesitter/` is whitelisted in
-`core/ase-validator/ecs_validator/data/third_party_oop.json` for the
+`tools/ase-forge/ase-validator/ecs_validator/data/third_party_oop.json` for the
 `EXTERN_C_FORBIDDEN` rule. Consumers include this header and call
 `ase::adp::treesitter::grammar_*()` — pure C++ in the caller's translation unit.
 

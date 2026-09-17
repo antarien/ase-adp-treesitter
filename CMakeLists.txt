@@ -10,7 +10,7 @@ ASE TREESITTER ADAPTER BUILD CONFIGURATION
              ase::adp::treesitter::grammar_*() inline functions. The extern "C"
              block lives only in this adapter's header; the rest of the
              codebase stays pure C++. Adapter path is whitelisted in
-             core/ase-validator/ecs_validator/data/third_party_oop.json
+             tools/ase-forge/ase-validator/ecs_validator/data/third_party_oop.json
              for the EXTERN_C_FORBIDDEN rule.
 
 @module      ase-adp-treesitter

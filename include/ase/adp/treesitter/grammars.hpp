@@ -11,7 +11,7 @@
  * EXTERN_C_FORBIDDEN rule — to keep the rest of the codebase pure C++.
  * This adapter is the SOLE allowed home for the tree-sitter C linkage:
  * it lives under adapter/ase-adp-treesitter/ which is whitelisted in
- * core/ase-validator/ecs_validator/data/third_party_oop.json.
+ * tools/ase-forge/ase-validator/ecs_validator/data/third_party_oop.json.
  *
  * Consumers include this header instead of writing their own extern "C"
  * declarations, and call ase::adp::treesitter::grammar_*() — pure C++ in the
