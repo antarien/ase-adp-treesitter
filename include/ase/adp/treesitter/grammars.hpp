@@ -21,6 +21,10 @@
  * TSLanguage is forward-declared so this header has zero build-time
  * dependency on tree-sitter itself; consumers that go on to parse code
  * include <tree_sitter/api.h> separately.
+ *
+ * Copyright (c) Jan Ohlmann. All rights reserved.
+ * Licensed to ANTARES SIMULACAO LTDA. Use is governed by LICENSE.md and PJV.md in this repository.
+ * SPDX-License-Identifier: LicenseRef-ASE-LIC
  */
 
 struct TSLanguage;
